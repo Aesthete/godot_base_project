@@ -1,0 +1,53 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://gui/GUI.tscn" type="PackedScene" id=1]
+[ext_resource path="res://game/states/splash.gd" type="Script" id=2]
+[ext_resource path="res://game/main.gd" type="Script" id=3]
+[ext_resource path="res://game/splash/Splash.tscn" type="PackedScene" id=4]
+[ext_resource path="res://game/states/fsm.gd" type="Script" id=5]
+[ext_resource path="res://game/states/credits.gd" type="Script" id=7]
+[ext_resource path="res://game/states/game.gd" type="Script" id=8]
+[ext_resource path="res://game/states/tutorial.gd" type="Script" id=9]
+[ext_resource path="res://game/states/menu.gd" type="Script" id=10]
+[ext_resource path="res://game/menu/Menu.tscn" type="PackedScene" id=11]
+[ext_resource path="res://game/game/Game.tscn" type="PackedScene" id=12]
+[ext_resource path="res://game/tutorial/Tutorial.tscn" type="PackedScene" id=13]
+[ext_resource path="res://game/credits/Credits.tscn" type="PackedScene" id=14]
+
+[node name="Main" type="Node"]
+script = ExtResource( 3 )
+
+[node name="States" type="Node" parent="."]
+script = ExtResource( 5 )
+START_STATE = NodePath("Splash")
+
+[node name="Splash" type="Node" parent="States"]
+script = ExtResource( 2 )
+StateScene = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="States/Splash"]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="Menu" type="Node" parent="States"]
+script = ExtResource( 10 )
+StateScene = ExtResource( 11 )
+
+[node name="Tutorial" type="Node" parent="States"]
+script = ExtResource( 9 )
+StateScene = ExtResource( 13 )
+
+[node name="Game" type="Node" parent="States"]
+script = ExtResource( 8 )
+StateScene = ExtResource( 12 )
+
+[node name="Credits" type="Node" parent="States"]
+script = ExtResource( 7 )
+StateScene = ExtResource( 14 )
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="GUI" parent="." instance=ExtResource( 1 )]
+
+[editable path="GUI"]

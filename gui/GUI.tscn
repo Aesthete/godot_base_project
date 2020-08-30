@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://gui/gui_controller.gd" type="Script" id=1]
+[ext_resource path="res://common/overlay/DarkenedOverlay.tscn" type="PackedScene" id=2]
+
+[node name="GUI" type="Control"]
+margin_right = 180.0
+margin_bottom = 320.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DarkenedOverlay" parent="." instance=ExtResource( 2 )]

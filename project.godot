@@ -1,0 +1,65 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "ColorRect",
+"class": "DarkenedOverlay",
+"language": "GDScript",
+"path": "res://common/overlay/overlay.gd"
+}, {
+"base": "Reference",
+"class": "GameGlobal",
+"language": "GDScript",
+"path": "res://common/globals.gd"
+}, {
+"base": "State",
+"class": "GameState",
+"language": "GDScript",
+"path": "res://game/states/game_state.gd"
+}, {
+"base": "Reference",
+"class": "InputActions",
+"language": "GDScript",
+"path": "res://common/util/input_actions.gd"
+}, {
+"base": "Node",
+"class": "State",
+"language": "GDScript",
+"path": "res://common/state/state.gd"
+}, {
+"base": "Node",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://common/state/state_machine.gd"
+} ]
+_global_script_class_icons={
+"DarkenedOverlay": "",
+"GameGlobal": "",
+"GameState": "",
+"InputActions": "",
+"State": "",
+"StateMachine": ""
+}
+
+[application]
+
+config/name="hurl"
+run/main_scene="res://game/Main.tscn"
+
+[autoload]
+
+GameSignals="*res://game/game_signals.gd"
+Globals="*res://common/globals.gd"
+GUI="*res://gui/gui.gd"
+GUISignals="*res://gui/gui_signals.gd"
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"
